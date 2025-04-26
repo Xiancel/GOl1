@@ -1,16 +1,16 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"unsafe"
+)
 
 func main() {
-	const Pi = 3.14159
-	const MaxUsers = 50
+	var a int8 = 122
+	var b float32 = 2.15
 
-	const (
-		StatusOk           = 200
-		StatusNotFound     = 404
-		StatusInternalEror = 500
-	)
-
-	fmt.Print(StatusOk)
+	var str string = "Hellow 1231232131231232131231231231231231231231"
+	fmt.Println(unsafe.Sizeof(a))
+	fmt.Println(unsafe.Sizeof(b))
+	fmt.Println(unsafe.Sizeof(str))
 }
