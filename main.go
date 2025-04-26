@@ -2,15 +2,30 @@ package main
 
 import (
 	"fmt"
-	"unsafe"
+	"math"
 )
 
 func main() {
-	var a int8 = 122
-	var b float32 = 2.15
+	a := 20
+	b := 11
 
-	var str string = "Hellow 1231232131231232131231231231231231231231"
-	fmt.Println(unsafe.Sizeof(a))
-	fmt.Println(unsafe.Sizeof(b))
-	fmt.Println(unsafe.Sizeof(str))
+	sum := a + b
+	fmt.Printf("%d + %d = %d\n", a, b, sum)
+
+	dif := a - b
+	fmt.Printf("%d - %d = %d\n", a, b, dif)
+
+	prod := a * b
+	fmt.Printf("%d * %d = %d\n", a, b, prod)
+
+	quo := a / b
+	fmt.Printf("%d / %d = %d\n", a, b, quo)
+
+	rem := a % b
+	fmt.Printf("%d %% %d = %d\n", a, b, rem)
+
+	FloatQ := float64(a) / float64(b)
+	fmt.Printf("%d / %d = %.3f\n", a, b, FloatQ)
+
+	fmt.Print(math.Pow(float64(a), 2))
 }
