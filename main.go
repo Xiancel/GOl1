@@ -5,18 +5,15 @@ import (
 )
 
 func main() {
-	var rating int
-	fmt.Scanln(&rating)
-	switch rating {
-	case 5:
-		fmt.Println("very Nice :))")
-	case 4:
-		fmt.Println("nice :)")
-	case 3:
-		fmt.Println("good :|")
-	case 1, 2:
-		fmt.Println("BAd :(")
+	var value interface{} = 12.2
+	switch v := value.(type) {
+	case string:
+		fmt.Println("String", v)
+	case int:
+		fmt.Println("Int", v)
+	case float64:
+		fmt.Println("Float64", v)
 	default:
-		fmt.Println("некоректна оцінка")
+		fmt.Println("Other type", v)
 	}
 }
