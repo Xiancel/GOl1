@@ -2,22 +2,15 @@ package main
 
 import (
 	"fmt"
-	"path/filepath"
+	"time"
 )
 
 func main() {
-	fileName := "doc.pdf"
-	extension := filepath.Ext(fileName)
-	fmt.Println(extension)
-	if extension == ".jpg" || extension == ".png" || extension == ".gif" {
-		fmt.Println("it's Picture WoW")
-	} else if extension == ".mp4" || extension == ".mov" || extension == ".avi" {
-		fmt.Println("it's video Wow")
-	} else if extension == ".mp3" || extension == ".wav" || extension == ".flac" {
-		fmt.Println("it's music woW")
-	} else if extension == ".doc" || extension == ".pdf" || extension == ".txt" {
-		fmt.Println("it's document WooooooW")
+	if today := time.Now().Weekday(); today == time.Saturday || today == time.Saturday {
+		fmt.Println("це вихідний")
+	} else if today == time.Friday {
+		fmt.Print("п'ятниця завтро суббота а после воскресенье")
 	} else {
-		fmt.Println("Unknow")
+		fmt.Println("WORK DAY")
 	}
 }
