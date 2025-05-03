@@ -2,30 +2,22 @@ package main
 
 import (
 	"fmt"
-	"math/rand"
-	"time"
+	"path/filepath"
 )
 
 func main() {
-	currentHour := time.Now().Hour()
-	fmt.Println(currentHour)
-
-	if currentHour >= 10 && currentHour < 17 {
-		fmt.Println("зараз день")
+	fileName := "doc.pdf"
+	extension := filepath.Ext(fileName)
+	fmt.Println(extension)
+	if extension == ".jpg" || extension == ".png" || extension == ".gif" {
+		fmt.Println("it's Picture WoW")
+	} else if extension == ".mp4" || extension == ".mov" || extension == ".avi" {
+		fmt.Println("it's video Wow")
+	} else if extension == ".mp3" || extension == ".wav" || extension == ".flac" {
+		fmt.Println("it's music woW")
+	} else if extension == ".doc" || extension == ".pdf" || extension == ".txt" {
+		fmt.Println("it's document WooooooW")
 	} else {
-		fmt.Println("зараз ніч")
-	}
-
-	if rand.Intn(2) == 0 {
-		fmt.Println("Орел")
-	} else {
-		fmt.Println("Решка")
-	}
-
-	satusCode := 200
-	if satusCode >= 200 && satusCode < 300 {
-		fmt.Println("OK")
-	} else {
-		fmt.Println("Nook")
+		fmt.Println("Unknow")
 	}
 }
