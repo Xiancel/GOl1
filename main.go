@@ -2,15 +2,21 @@ package main
 
 import (
 	"fmt"
-	"time"
 )
 
 func main() {
-	if today := time.Now().Weekday(); today == time.Saturday || today == time.Saturday {
-		fmt.Println("це вихідний")
-	} else if today == time.Friday {
-		fmt.Print("п'ятниця завтро суббота а после воскресенье")
-	} else {
-		fmt.Println("WORK DAY")
+	var rating int
+	fmt.Scanln(&rating)
+	switch rating {
+	case 5:
+		fmt.Println("very Nice :))")
+	case 4:
+		fmt.Println("nice :)")
+	case 3:
+		fmt.Println("good :|")
+	case 1, 2:
+		fmt.Println("BAd :(")
+	default:
+		fmt.Println("некоректна оцінка")
 	}
 }
