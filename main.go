@@ -2,18 +2,15 @@ package main
 
 import (
 	"fmt"
+	"time"
 )
 
 func main() {
-	var value interface{} = 12.2
-	switch v := value.(type) {
-	case string:
-		fmt.Println("String", v)
-	case int:
-		fmt.Println("Int", v)
-	case float64:
-		fmt.Println("Float64", v)
-	default:
-		fmt.Println("Other type", v)
+	currentHour := time.Now().Hour()
+	fmt.Println(currentHour)
+	if currentHour >= 10 && currentHour < 16 {
+		fmt.Println("Зараз день")
+	} else {
+		fmt.Println("Зараз ніч")
 	}
 }
