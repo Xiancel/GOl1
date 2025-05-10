@@ -5,11 +5,9 @@ import (
 )
 
 func main() {
-	var a int
-	for i := 0; i <= 3; i++ {
-		a = a + 2
+	var i int
+	for i <= 3 {
 		fmt.Printf("Iteration: %d \n", i)
+		i++
 	}
-
-	fmt.Println(a)
 }
