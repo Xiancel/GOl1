@@ -2,15 +2,14 @@ package main
 
 import (
 	"fmt"
-	"time"
 )
 
 func main() {
-	currentHour := time.Now().Hour()
-	fmt.Println(currentHour)
-	if currentHour >= 10 && currentHour < 16 {
-		fmt.Println("Зараз день")
-	} else {
-		fmt.Println("Зараз ніч")
+	var a int
+	for i := 0; i <= 3; i++ {
+		a = a + 2
+		fmt.Printf("Iteration: %d \n", i)
 	}
+
+	fmt.Println(a)
 }
