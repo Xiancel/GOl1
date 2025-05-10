@@ -5,9 +5,13 @@ import (
 )
 
 func main() {
-	var i int
-	for i <= 3 {
-		fmt.Printf("Iteration: %d \n", i)
-		i++
+	name := []string{"Jessie Pinkman", "Walter White", "Gustavo Fring"}
+
+	for index, name := range name {
+		fmt.Printf("Index %d: %s\n", index, name)
+	}
+
+	for _, name := range name {
+		fmt.Printf("Hellow - %s\n", name)
 	}
 }
