@@ -5,15 +5,18 @@ import (
 )
 
 func main() {
-	fmt.Println(sum(1, 2))
-	fmt.Println(sum(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20))
-}
+	x := 20
+	func() {
+		fmt.Println("Hellow from anonymous func", x)
+	}()
 
-func sum(numbers ...int) int {
-	total := 0
-	for _, num := range numbers {
-		total += num
+	func(name string) {
+		fmt.Println("Hellow from anonymous func", name)
+	}("GoLang")
+
+	square := func(n int) int {
+		return n * n
 	}
 
-	return total
+	fmt.Println(square(8))
 }
