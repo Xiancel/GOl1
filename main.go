@@ -5,18 +5,12 @@ import (
 )
 
 func main() {
-	x := 20
-	func() {
-		fmt.Println("Hellow from anonymous func", x)
-	}()
+	demoDefer()
+}
 
-	func(name string) {
-		fmt.Println("Hellow from anonymous func", name)
-	}("GoLang")
-
-	square := func(n int) int {
-		return n * n
-	}
-
-	fmt.Println(square(8))
+func demoDefer() {
+	x := 10
+	defer fmt.Println("X value: ", x)
+	x = 20
+	fmt.Println("X changed value: ", x)
 }
