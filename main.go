@@ -1,8 +1,21 @@
 package main
 
-func main() {
-	var ch byte = 65
-	var ch1 byte = 0b1000001
-	var ch2 byte = 0o101
-	var ch3 byte = 0x41
+import (
+	"fmt"
+)
+
+func output(a int) {
+	fmt.Println(a)
 }
+func main() {
+	var a int
+
+	fmt.Scanln(&a)
+
+	output(a)
+}
+
+// func functionName (par1 type1, par2 type2, ...)return_type{
+// 	//function body
+// 	return value
+// }
