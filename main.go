@@ -5,23 +5,20 @@ import (
 )
 
 func main() {
-	//массив
-	//var ім'я [розмір]тип
-	var numbers = [5]int{1, 2, 3, 4, 5}
+	//слайс
+	//var ім'я []тип
+	//var number []int
 
-	fmt.Println(&numbers[0])
-	fmt.Println(&numbers[1])
-	fmt.Println(&numbers[2])
-	fmt.Println(&numbers[3])
-	fmt.Println(&numbers[4])
+	arr := [5]int{1, 2, 3, 4, 5}
 
-	var fruits = [4]string{"apple", "orange", "peach", "banana"}
+	slice1 := arr[1:4]
+	fmt.Println(slice1)
 
-	fmt.Println(&fruits[0])
-	fmt.Println(&fruits[1])
-	fmt.Println(&fruits[2])
-	fmt.Println(&fruits[3])
+	slice2 := arr[:3]
+	slice3 := arr[2:]
+	slice4 := arr
 
-	names := [...]string{"Walter", "Gustav", "Jesse"}
-	fmt.Println(names)
+	fmt.Println(slice2)
+	fmt.Println(slice3)
+	fmt.Println(slice4)
 }
