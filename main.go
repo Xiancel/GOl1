@@ -5,28 +5,20 @@ import (
 )
 
 func main() {
-	names := []string{"Walter", "Jesse"}
-	names = append(names, "Oleg")
+	names := make([]string, 3, 5) //["","","","",""]
+	names[0] = "Oleg"
+	names[1] = "Oleksandr"
+	names[2] = "Joseph"
 	fmt.Println(names)
+	fmt.Println("Lenght", len(names))
+	fmt.Println("Capacity", cap(names))
 
-	set2Names := []string{"Law", "Zoro", "Shanks"}
-	names = append(names, set2Names...)
-	fmt.Println(names)
+	s := make([]int, 0, 3)
+	fmt.Printf("Slice: %v, Lenght: %d, Capacity: %d\n", s, len(s), cap(s))
 
-	fmt.Println(" --- Після видалення --- ")
-	names = removeElement(names, 2)
-	fmt.Println(names)
-
-	names = removeElement(names, 2)
-	fmt.Println(names)
-}
-
-func removeElement(slice []string, index int) []string {
-	return append(slice[:index], slice[index+1:]...)
-}
-
-func removeFastElement(slice []string, index int) []string {
-	slice[index] = slice[len(slice)-1]
-
-	return slice[:len(slice)-1]
+	fmt.Println(" --- Післе циклу ---")
+	for i := 1; i <= 7; i++ {
+		s = append(s, i)
+		fmt.Printf("Slice: %v, Lenght: %d, Capacity: %d\n", s, len(s), cap(s))
+	}
 }
