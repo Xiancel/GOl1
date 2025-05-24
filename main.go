@@ -4,50 +4,24 @@ import (
 	"fmt"
 )
 
-func incrementGenerator() func() int {
-	count := 0
-
-	return func() int {
-		count++
-		return count
-	}
-}
-
 func main() {
-	increment := incrementGenerator()
+	//массив
+	//var ім'я [розмір]тип
+	var numbers = [5]int{1, 2, 3, 4, 5}
 
-	fmt.Println(increment())
-	fmt.Println(increment())
-	fmt.Println(increment())
+	fmt.Println(&numbers[0])
+	fmt.Println(&numbers[1])
+	fmt.Println(&numbers[2])
+	fmt.Println(&numbers[3])
+	fmt.Println(&numbers[4])
 
-	Anotherincrement := incrementGenerator()
+	var fruits = [4]string{"apple", "orange", "peach", "banana"}
 
-	fmt.Println(Anotherincrement())
-	fmt.Println(Anotherincrement())
-	fmt.Println(Anotherincrement())
+	fmt.Println(&fruits[0])
+	fmt.Println(&fruits[1])
+	fmt.Println(&fruits[2])
+	fmt.Println(&fruits[3])
 
-	double := multiplyBy(2)
-	triple := multiplyBy(3)
-
-	fmt.Println(double(5))
-	fmt.Println(triple(5))
-
-	//example 3
-	yourAccount := createBankAccount(1000)
-	fmt.Println(yourAccount(500))
-	fmt.Println(yourAccount(-200))
-}
-
-func multiplyBy(multiplier int) func(int) int {
-	return func(value int) int {
-		return value * multiplier
-	}
-}
-
-func createBankAccount(initBalance float64) func(float64) float64 {
-	balance := initBalance
-	return func(sum float64) float64 {
-		balance += sum
-		return balance
-	}
+	names := [...]string{"Walter", "Gustav", "Jesse"}
+	fmt.Println(names)
 }
