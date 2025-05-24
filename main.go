@@ -5,20 +5,19 @@ import (
 )
 
 func main() {
-	//слайс
-	//var ім'я []тип
-	//var number []int
+	names := []string{"Walter", "Jesse"}
+	names = append(names, "Oleg")
+	fmt.Println(names)
 
-	arr := [5]int{1, 2, 3, 4, 5}
+	set2Names := []string{"Law", "Zoro", "Shanks"}
+	names = append(names, set2Names...)
+	fmt.Println(names)
 
-	slice1 := arr[1:4]
-	fmt.Println(slice1)
+	fmt.Println(" --- Після видалення --- ")
+	names = removeElement(names, 2)
+	fmt.Println(names)
+}
 
-	slice2 := arr[:3]
-	slice3 := arr[2:]
-	slice4 := arr
-
-	fmt.Println(slice2)
-	fmt.Println(slice3)
-	fmt.Println(slice4)
+func removeElement(slice []string, index int) []string {
+	return append(slice[:index], slice[index+1:]...)
 }
