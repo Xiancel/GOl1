@@ -12,6 +12,9 @@ type Student struct {
 	Groupe  string
 	Avarage float64
 }
+type School struct {
+	Students []Student
+}
 
 func main() {
 	student1 := Student{
@@ -38,4 +41,17 @@ func main() {
 	fmt.Printf("Student 1: %+v\n", student3)
 
 	fmt.Printf("Student1 name: %s\n", student1.Name)
+
+	school := School{
+		Students: []Student{student1, student2, student3},
+	}
+
+	studentsSlice := []Student{student1, student2, student3}
+
+	school2 := School{
+		Students: studentsSlice,
+	}
+
+	fmt.Printf("School: %v\n", school)
+	fmt.Printf("School: %v\n", school2)
 }
