@@ -1,57 +1,47 @@
 package main
 
-import (
-	"fmt"
-)
+import "fmt"
 
-// структури - це визначенний користувачем тип, який дозволяє комбінувати елементи різних типів в одит тип.
-// struct is value type. NOT REFERENCE TYPE
-type Student struct {
-	Name    string
-	Age     int
-	Groupe  string
-	Avarage float64
+type Car struct {
+	Brand      string
+	Model      string
+	Years      int
+	Price      float64
+	IsElectric bool
 }
-type School struct {
-	Students []Student
+
+type Garage struct {
+	Cars []Car
 }
 
 func main() {
-	student1 := Student{
-		Name:    "Jo",
-		Age:     23,
-		Groupe:  "IT-52",
-		Avarage: 52.2,
+	car1 := Car{
+		Brand:      "BMW",
+		Model:      "M4",
+		Years:      2024,
+		Price:      80000,
+		IsElectric: false,
+	}
+	car2 := Car{
+		Brand:      "BMW",
+		Model:      "X6M",
+		Years:      2025,
+		Price:      132100,
+		IsElectric: false,
+	}
+	car3 := Car{
+		Brand:      "Porsche",
+		Model:      "Taycan turbo s",
+		Years:      2023,
+		Price:      168280,
+		IsElectric: true,
 	}
 
-	student2 := Student{
-		Name: "Qwer",
-		Age:  23,
-		//group, avg -> null
+	garages := Garage{
+		Cars: []Car{car1, car2, car3},
 	}
 
-	var student3 Student
-	student3.Name = "Andrew"
-	student3.Age = 18
-	student3.Groupe = "IT-912"
-	student3.Avarage = 10.5
-
-	fmt.Printf("Student 1: %+v\n", student1)
-	fmt.Printf("Student 1: %+v\n", student2)
-	fmt.Printf("Student 1: %+v\n", student3)
-
-	fmt.Printf("Student1 name: %s\n", student1.Name)
-
-	school := School{
-		Students: []Student{student1, student2, student3},
+	for i := 0; i < len(garages.Cars); i++ {
+		fmt.Printf("Cars %d: %+v\n", i+1, garages.Cars[i])
 	}
-
-	studentsSlice := []Student{student1, student2, student3}
-
-	school2 := School{
-		Students: studentsSlice,
-	}
-
-	fmt.Printf("School: %v\n", school)
-	fmt.Printf("School: %v\n", school2)
 }
