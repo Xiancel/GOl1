@@ -10,10 +10,16 @@ type Studen struct {
 }
 
 func main() {
-	a := Studen{Name: "Shanks", Age: 39}
-	b := &a //b - вказівник на a
-	b.Name = "Bob"
+	var x int = 42
+	var p *int = &x
+	fmt.Println(*p)
+	*p = 20
+	fmt.Println(*p)
 
-	fmt.Println(a.Name)
-	fmt.Println(b.Name)
+	x, y := 10, 20
+	swap(&x, &y)
+	fmt.Printf("x=%d, y=%d\n", x, y)
+}
+func swap(a, b *int) {
+	*a, *b = *b, *a
 }
