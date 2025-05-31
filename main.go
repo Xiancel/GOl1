@@ -11,7 +11,7 @@ type Studen struct {
 
 func main() {
 	a := Studen{Name: "Shanks", Age: 39}
-	b := a
+	b := &a //b - вказівник на a
 	b.Name = "Bob"
 
 	fmt.Println(a.Name)
