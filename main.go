@@ -2,24 +2,48 @@ package main
 
 import "fmt"
 
-type Studen struct {
+// Інтерфейси - це колекція сигнатур методів. Це контракт, який визначає, які методи повинен мати тип, але НЕ РЕАЛІЗУЄ ЇХ
+//  type НазваІнтерфейсу interface{
+// 	НазваМетоду(параметр) повертає
+// 	ІншийМетод(параметр) повертає
+//  }
+
+//Duck type - "якщо щось ходить як качка і крякає як качка, то це качка!!!"
+type Animal interface {
+	MakeSound() string
+}
+type Dog struct {
+	Name  string
+	Breed string
+}
+
+type Bird struct {
 	Name    string
-	Age     int
-	Group   string
-	Avarage float64
+	Species string
 }
 
+func (d Dog) MakeSound() string {
+	return "woof!"
+}
+
+func (b Bird) MakeSound() string {
+	return "tweet!"
+}
+
+// func PrintDogSound(d Dog) {
+// 	fmt.Println(d.MakeSound())
+// }
+
+// func PrintBirdSound(b Bird) {
+// 	fmt.Println(b.MakeSound())
+// }
+
+func PrintAminalSound(a Animal) {
+	fmt.Println(a.MakeSound())
+}
 func main() {
-	var x int = 42
-	var p *int = &x
-	fmt.Println(*p)
-	*p = 20
-	fmt.Println(*p)
-
-	x, y := 10, 20
-	swap(&x, &y)
-	fmt.Printf("x=%d, y=%d\n", x, y)
-}
-func swap(a, b *int) {
-	*a, *b = *b, *a
+	bird := Bird{Name: "Kesha", Species: "Parrot"}
+	dog := Dog{Name: "", Breed: ""}
+	PrintAminalSound(bird)
+	PrintAminalSound(dog)
 }
