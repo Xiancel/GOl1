@@ -9,54 +9,43 @@ import "fmt"
 //  }
 
 //Duck type - "якщо щось ходить як качка і крякає як качка, то це качка!!!"
-type MusicInstrument interface {
-	playMusic()
-	tuneInstrument()
+type Drawble interface {
+	Draw()
 }
 
-type Piano struct{}
-
-func (p Piano) playMusic() {
-	fmt.Println("Wasted! JuiceWRLD")
+type Resizeble interface {
+	Resizeble(factor float64)
 }
 
-func (p Piano) tuneInstrument() {
-	fmt.Println("tune... piano")
+type GraphicElement interface {
+	Drawble
+	Resizeble
+	GetInfo() string
 }
 
-type Guitar struct{}
-
-func (g Guitar) playMusic() {
-	fmt.Println("Evil Jordan! Playboi Carti")
+type Square struct {
+	Size float64
 }
 
-func (g Guitar) tuneInstrument() {
-	fmt.Println("tune... guitar")
+func (s *Square) Draw() {
+	fmt.Printf("Draw square with size: %.f \n", s.Size)
 }
 
-type Drums struct{}
-
-func (d Drums) playMusic() {
-	fmt.Println("liberation drums")
+func (s *Square) Resizeble(factor float64) {
+	s.Size *= factor
+	fmt.Printf("Draw square with size: %.f \n", s.Size)
+}
+func (s Square) GetInfo() string {
+	return fmt.Sprintf("Square: sise=%.1f\n", s.Size)
 }
 
-func (g Drums) tuneInstrument() {
-	fmt.Println("tune... drums")
+func ProcessGraphic(g GraphicElement) {
+	fmt.Println(g.GetInfo())
+	g.Draw()
+	g.Resizeble(1.5)
+	g.Draw()
 }
-
-func playSongs(i MusicInstrument) {
-	fmt.Println("getting ready")
-	i.tuneInstrument()
-	fmt.Println("play music")
-	i.playMusic()
-	fmt.Println("BB")
-}
-
 func main() {
-	piano := Piano{}
-	guitar := Guitar{}
-	drum := Drums{}
-	playSongs(piano)
-	playSongs(guitar)
-	playSongs(drum)
+	sq := &Square{Size: 10}
+	ProcessGraphic(sq)
 }
