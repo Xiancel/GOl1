@@ -9,41 +9,54 @@ import "fmt"
 //  }
 
 //Duck type - "якщо щось ходить як качка і крякає як качка, то це качка!!!"
-type Animal interface {
-	MakeSound() string
-}
-type Dog struct {
-	Name  string
-	Breed string
+type MusicInstrument interface {
+	playMusic()
+	tuneInstrument()
 }
 
-type Bird struct {
-	Name    string
-	Species string
+type Piano struct{}
+
+func (p Piano) playMusic() {
+	fmt.Println("Wasted! JuiceWRLD")
 }
 
-func (d Dog) MakeSound() string {
-	return "woof!"
+func (p Piano) tuneInstrument() {
+	fmt.Println("tune... piano")
 }
 
-func (b Bird) MakeSound() string {
-	return "tweet!"
+type Guitar struct{}
+
+func (g Guitar) playMusic() {
+	fmt.Println("Evil Jordan! Playboi Carti")
 }
 
-// func PrintDogSound(d Dog) {
-// 	fmt.Println(d.MakeSound())
-// }
-
-// func PrintBirdSound(b Bird) {
-// 	fmt.Println(b.MakeSound())
-// }
-
-func PrintAminalSound(a Animal) {
-	fmt.Println(a.MakeSound())
+func (g Guitar) tuneInstrument() {
+	fmt.Println("tune... guitar")
 }
+
+type Drums struct{}
+
+func (d Drums) playMusic() {
+	fmt.Println("liberation drums")
+}
+
+func (g Drums) tuneInstrument() {
+	fmt.Println("tune... drums")
+}
+
+func playSongs(i MusicInstrument) {
+	fmt.Println("getting ready")
+	i.tuneInstrument()
+	fmt.Println("play music")
+	i.playMusic()
+	fmt.Println("BB")
+}
+
 func main() {
-	bird := Bird{Name: "Kesha", Species: "Parrot"}
-	dog := Dog{Name: "", Breed: ""}
-	PrintAminalSound(bird)
-	PrintAminalSound(dog)
+	piano := Piano{}
+	guitar := Guitar{}
+	drum := Drums{}
+	playSongs(piano)
+	playSongs(guitar)
+	playSongs(drum)
 }
